@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32*32" href="assets/images/palette_logo.png">
-    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
-    <title>Palette IA</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- <link rel="icon" type="image/png" sizes="32*32" href="assets/images/palette_logo.png"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    <title>Palette AI</title>
+
     <style type="text/tailwindcss">
       @theme {
         --font-main:"Plus Jakarta Sans", sans-serif;
@@ -19,11 +20,17 @@
       }
     </style>
 </head>
-<body class="bg-white-background">
-    <header class="bg-green-400 h-auto w-full">
-      <img height="52" width="150" src="assets/images/palette_logo_2.svg" alt="palette_logo_2">
-    </header>
+<body class="bg-white-background overflow-hidden h-screen w-screen px-0 py-0 border-0 box-border">
+  <header class="h-auto w-full">
+    <img height="52" width="150" src="assets/images/palette_logo_2.svg" alt="palette_logo_2">
+  </header>
 
-    
+  <section class="bg-banner h-[20rem] w-full flex items-center justify-center mt-[1.5rem]">
+    <div class="text-white-background flex flex-col items-start w-[30rem] h-[13rem]">
+      <h1 class="text-[1.8rem]  font-main font-bold">Create your perfect color palettes with AI  🌈</h1><br>
+      <p class="text-[1.4rem]  font-secondary font-semibold">Enter a keyword (nature, beach, night ...) and <br> let our AI generates the palette that inspires <br>you.</p>
+    </div>
+  </section>
+
 </body>
 </html>
