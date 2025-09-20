@@ -17,13 +17,13 @@
         --color-white-background:#FFFFFF;
         --color-grey-background:#EEEEEE;
         --color-bord:#DDDDDD;
-        --color-muted:#EEEEEE;
+        --color-muted:#BBBBBB;
         --color-text:#03071E;
         --color-banner:#5C0099;
       }
     </style>
 </head>
-<body class="bg-white-background overflow-hidden h-screen w-screen px-0 py-0 border-0 box-border">
+<body class="overflow-x-hidden min-h-screen w-screen px-0 py-0 border-0 box-border">
   <!--header-->
   <header class="bg-green-400 h-auto w-full flex items-center justify-between pr-[2rem] relative ">
     <a href="../../index.html"><img class="xl:h-[10rem] xl:w-[18rem]" height="50" width="100" src="../images/palette_logo_2.svg" alt="palette_logo_2"></a>
@@ -38,11 +38,59 @@
     </div>
   </header>
 
+  <!--generateur-->
+  <section class="bg-grey-background w-full mt-[3rem] pb-[2rem] flex flex-col items-center gap-y-[2.5rem] px-[1.8rem]">
+    <form class="h-[42rem] xl:h-[50rem] w-[35rem] xl:w-[56rem] bg-white-background rounded-lg mt-[1.8rem] px-[1.8rem] flex flex-col justify-center">
+      <h1 class="text-[1.8rem] xl:text-[3rem] text-text text-center font-main font-bold mb-[1rem]">Generate  your palette</h1>
+      <div class="flex flex-col w-full xl:h-[12rem] h-[10rem] justify-between items-center">
+        <input class="xl:h-[5rem] h-[3.6rem] w-full border-[0.1rem] border-bord text-text pl-[1rem] text-[1.4rem] xl:text-[1.8rem] font-secondary font-semibold rounded-sm" type="text" name="keyword" id="keyword" placeholder="Please enter a keyword...">
+        <button class=" flex justify-center items-center xl:h-[5rem] xl:w-[30rem] h-[4rem] w-[18rem] text-white-background text-[1.8rem] rounded-xl font-bold font-main bg-muted">Generate</button>
+      </div>
 
+      <div class="w-full h-[14rem] xl:h-[18rem] mt-[4rem] flex flex-col justify-between">
+        <div class=" h-auto w-full flex justify-between">
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+        </div>
 
+        <div class="h-[6rem] xl:h-[8rem] flex flex-col justify-between">
+          
+          <div class="flex items-center gap-x-[2rem] h-auto relative w-full" >
+            <span class="font-semibold font-secondary text-text text-[1.4rem] xl:text-[2rem]">Saturation :</span>
+            <input type="range" id="saturation" min="0" max="100" value="50" class="w-[18rem] cursor-pointer">
+            <div id="popup-sat" class="absolute -top-[1.4rem] left-1/2 transform -translate-x-1/2 bg-gray-800 text-white xl:text-[1.4rem] text-sm px-[0.6rem] xl:px-[0.3rem] py-[0.3rem] rounded hidden"></div>
+          </div>
 
+          
+          <div class="flex items-center gap-x-[2rem] h-auto relative w-full">
+            <span class="font-semibold font-secondary text-text text-[1.4rem] xl:text-[2rem]">Brightness :</span>
+            <input type="range" id="luminosite" min="0" max="100" value="70" class="w-[18rem] cursor-pointer">
+            <div id="popup-lum" class="absolute -top-[1.4rem] left-1/2 transform -translate-x-1/2 bg-gray-800 text-white  xl:text-[1.4rem] text-sm px-[0.6rem] xl:px-[0.3rem]  py-[0.3rem] rounded hidden"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="xl:flex xl:justify-center xl:items-center">
+        <button class="flex justify-center items-center xl:h-[5rem] h-[4rem] xl:mt-[2rem] mt-[1.8rem] w-full xl:w-[50rem] rounded-xl text-[1.8rem] font-main font-bold bg-primary text-white-background">Register</button>
+      </div>
+    </form>
+
+    <div class=" h-auto w-[35rem] xl:w-[56rem] flex flex-col gap-y-[1rem]">
+      <div class=" w-full flex gap-x-[0.5rem] items-center">
+        <span>👉</span>
+        <p class="text-[1.4rem] xl:text-[2rem] font-medium font-secondary bg-gradient-to-r from-primary via-text to-primary bg-clip-text text-transparent"> View your favorites</p>
+      </div>
+      <div class="h-auto w-full flex justify-center items-center">
+        <button  class="flex justify-center items-center xl:h-[5rem] h-[4rem] xl:w-[30rem] w-[18rem] text-white-background text-[1.8rem] rounded-xl font-bold font-main bg-secondary">Premium</button>
+      </div>
+    </div> 
+  </section>
 
   <script>
+
+    //gestion hamburger
     const btn = document.getElementById("hamburgerBtn");
     const menu = document.getElementById("menu");
 
@@ -56,6 +104,31 @@
         menu.classList.remove("absolute", "top-full", "justify-center","items-center","gap-y-[2rem]","shadow-lg","rounded-xl","h-[18rem]", "right-0", "w-[52%]", "bg-white-background", "flex-col","font-regular");
       }
     });
+
+    // fonction pour activer un slider avec sa bulle
+    function activerSlider(sliderId, popupId) {
+      const slider = document.getElementById(sliderId);
+      const popup = document.getElementById(popupId);
+
+      // Quand on déplace le slider
+      slider.addEventListener("input", () => {
+        popup.classList.remove("hidden");
+        popup.textContent = slider.value + "%";
+
+        // déplace la bulle en fonction du curseur
+        const percent = (slider.value - slider.min) / (slider.max - slider.min);
+        popup.style.left = `calc(${percent * 100}% )`;
+      });
+
+      // Quand on arrête de bouger
+      slider.addEventListener("change", () => {
+        setTimeout(() => popup.classList.add("hidden"), 600);
+      });
+    }
+
+    // activer pour saturation et luminosité
+    activerSlider("saturation", "popup-sat");
+    activerSlider("luminosite", "popup-lum");
   </script>
 </body>
 </html>
