@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" type="image/png" sizes="32*32" href="../images/palette_logo.png">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <title>Generator</title>
+
+    <style type="text/tailwindcss">
+      @theme {
+        --font-main:"Plus Jakarta Sans", sans-serif;
+        --font-secondary: "Nunito Sans", sans-serif;
+        --color-primary:#3D0066;
+        --color-secondary:#FFD500;
+        --color-white-background:#FFFFFF;
+        --color-grey-background:#EEEEEE;
+        --color-bord:#DDDDDD;
+        --color-muted:#EEEEEE;
+        --color-text:#03071E;
+        --color-banner:#5C0099;
+      }
+    </style>
+</head>
+<body class="bg-white-background overflow-hidden h-screen w-screen px-0 py-0 border-0 box-border">
+  <!--header-->
+  <header class="bg-green-400 h-auto w-full flex items-center justify-between pr-[2rem] relative ">
+    <a href="../../index.html"><img class="xl:h-[10rem] xl:w-[18rem]" height="50" width="100" src="../images/palette_logo_2.svg" alt="palette_logo_2"></a>
+     
+    <ul id="menu" class="hidden md:flex h-[10rem] w-[50rem] list-none flex items-center justify-around text-text text-[1.4rem] xl:text-[2rem] font-main font-bold *:hover:cursor-pointer *:hover:text-banner *:hover:border-b-[0.5rem]">
+      <li><a href="../../index.html">Home Page</a></li>
+      <li><a href="generator.html">Generator</a></li>
+      <li><a href="#">My Favorites</a></li>
+    </ul>
+    <div id="hamburgerBtn"  class="block md:hidden cursor-pointer" >
+      <img height="30" width="35" src="../images/hamburger.svg" alt="hamburger">
+    </div>
+  </header>
+
+
+
+
+
+  <script>
+    const btn = document.getElementById("hamburgerBtn");
+    const menu = document.getElementById("menu");
+
+    btn.addEventListener("click", () => {
+      
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        menu.classList.add("absolute", "top-full", "justify-center","items-center","gap-y-[2rem]","shadow-lg","rounded-xl", "h-[18rem]", "right-0", "w-[52%]", "bg-white-background", "flex-col", "font-regular");
+      } else {
+        menu.classList.add("hidden");
+        menu.classList.remove("absolute", "top-full", "justify-center","items-center","gap-y-[2rem]","shadow-lg","rounded-xl","h-[18rem]", "right-0", "w-[52%]", "bg-white-background", "flex-col","font-regular");
+      }
+    });
+  </script>
+</body>
+</html>
