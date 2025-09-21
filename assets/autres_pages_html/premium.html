@@ -13,8 +13,8 @@
         --font-main:"Plus Jakarta Sans", sans-serif;
         --font-secondary: "Nunito Sans", sans-serif;
         --color-primary:#3D0066;
-        --color-secondary:#FFD500;
-        --color-alert:#F31D1D;
+        --color-bord:#FFD500;
+        --color-muted:#BBBBBB;
         --color-white-background:#FFFFFF;
         --color-grey-background:#EEEEEE;
         --color-text:#03071E;
@@ -27,7 +27,7 @@
   <header class="bg-green-400 h-auto w-full flex items-center justify-between pr-[2rem] relative ">
     <a href="../../index.html"><img class="xl:h-[10rem] xl:w-[18rem]" height="50" width="100" src="../images/palette_logo_2.svg" alt="palette_logo_2"></a>
      
-    <ul id="menu" class="bg-red-400 hidden md:flex h-[10rem] w-[50rem] list-none flex items-center justify-around text-text text-[1.4rem] xl:text-[2rem] font-main font-bold *:hover:cursor-pointer *:hover:text-banner *:hover:border-b-[0.5rem]">
+    <ul id="menu" class="hidden md:flex h-[10rem] xl:w-[68rem] w-[50rem] list-none flex items-center justify-around text-text text-[1.4rem] xl:text-[2rem] font-main font-bold *:hover:cursor-pointer *:hover:text-banner *:hover:border-b-[0.5rem]">
       <li><a href="../../index.html">Home Page</a></li>
       <li><a href="generator.html">Generator</a></li>
       <li><a href="favorite.html">My Favorites</a></li>
@@ -39,9 +39,36 @@
     </div>
   </header>
 
+  <!-- banner -->
+  <section class="bg-banner h-[10rem] mt-[3rem] w-full flex justify-center items-center">
+    <p class="text-white-background text-[1.8rem] text-center font-bold font-main">Unlock  advanced features with<br> Premium  👑</p>
+  </section>
+
   <!--Premium-->
-  <section class="bg-grey-background min-h-screen w-full mt-[3rem] pb-[2rem] flex flex-col xl:px-[5rem] px-[1.8rem]">
-    
+  <section class="bg-grey-background min-h-screen w-full pb-[2rem] flex flex-col items-center xl:px-[5rem] px-[1.8rem]">
+    <div class="h-[28rem] w-[28rem] rounded-tl-xl rounded-br-xl bg-white-background shadow-lg flex flex-col justify-center items-center gap-y-[1.5rem] mt-[4rem]">
+      <h1 class="text-[1.8rem] font-main font-bold text-text bg-red-400">Free</h1>
+      <div class="flex flex-col h-auto w-[22rem] gap-y-[1rem] bg-yellow-400 text-text font-secondary font-regular text-[1.4rem]">
+        <span>📅 Daily generation: 3</span>
+        <span>⚙️🔧 Advanced customization: ❌</span>
+        <span>🎨 Save palette: ❌</span>
+        <span>📊 Dashboard access: ❌</span>
+        <span>💵 Price: Free</span>
+      </div>
+      <button class="text-text text-[1.4rem]  w-[22rem] bg-muted h-[3.5rem] rounded-xl flex justify-center items-center" >Switch to the free plan</button>
+    </div>
+
+    <div class="border-[0.2rem] border-bord h-[28rem] w-[28rem] rounded-tl-xl rounded-br-xl bg-white-background shadow-lg flex flex-col justify-center items-center gap-y-[1.5rem] mt-[3rem]">
+      <h1 class="text-[1.8rem] font-main font-bold text-text bg-red-400">Premium 👑</h1>
+      <div class="flex flex-col h-auto w-[22rem] gap-y-[1rem] bg-yellow-400 text-text font-secondary font-regular text-[1.4rem]">
+        <span>📅 Daily generation: Unlimited</span>
+        <span>⚙️🔧 Advanced customization: ✅</span>
+        <span>🎨 Save palette: ✅</span>
+        <span>📊 Dashboard access: ✅</span>
+        <span>💵 Price: 4,99€ /month</span>
+      </div>
+      <button class= "text-white-background text-[1.4rem]  w-[22rem] bg-primary h-[3.5rem] rounded-xl flex justify-center items-center" >Switch to Premium</button>
+    </div>
   </section>
 
   <script>
