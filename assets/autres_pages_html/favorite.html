@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="icon" type="image/png" sizes="32*32" href="../images/palette_logo.png">
     <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <title>Generator</title>
+    <title>Favorites</title>
 
     <style type="text/tailwindcss">
       @theme {
@@ -14,16 +14,15 @@
         --font-secondary: "Nunito Sans", sans-serif;
         --color-primary:#3D0066;
         --color-secondary:#FFD500;
+        --color-alert:#F31D1D;
         --color-white-background:#FFFFFF;
         --color-grey-background:#EEEEEE;
-        --color-bord:#DDDDDD;
-        --color-muted:#BBBBBB;
         --color-text:#03071E;
         --color-banner:#5C0099;
       }
     </style>
 </head>
-<body class="overflow-x-hidden min-h-screen w-screen px-0 py-0 border-0 box-border">
+<body class="overflow-x-hidden h-screen w-screen px-0 py-0 border-0 box-border">
   <!--header-->
   <header class="h-auto w-full flex items-center justify-between pr-[2rem] relative ">
     <a href="../../index.html"><img class="xl:h-[10rem] xl:w-[18rem]" height="50" width="100" src="../images/palette_logo_2.svg" alt="palette_logo_2"></a>
@@ -31,7 +30,7 @@
     <ul id="menu" class="hidden md:flex h-[10rem] w-[50rem] list-none flex items-center justify-around text-text text-[1.4rem] xl:text-[2rem] font-main font-bold *:hover:cursor-pointer *:hover:text-banner *:hover:border-b-[0.5rem]">
       <li><a href="../../index.html">Home Page</a></li>
       <li><a href="generator.html">Generator</a></li>
-      <li><a href="#">My Favorites</a></li>
+      <li><a href="favorite.html">My Favorites</a></li>
     </ul>
     <div id="hamburgerBtn"  class="block md:hidden cursor-pointer" >
       <img height="30" width="35" src="../images/hamburger.svg" alt="hamburger">
@@ -39,10 +38,64 @@
   </header>
 
   <!--favoris-->
-  <section class="bg-grey-background w-full mt-[3rem] pb-[2rem] flex flex-col items-center px-[1.8rem]">
-    
+  <section class="bg-grey-background min-h-screen w-full mt-[3rem] pb-[2rem] flex flex-col xl:px-[5rem] px-[1.8rem]">
+    <h1 class="text-[1.8rem] xl:text-[3rem] mt-[4rem] text-text font-main font-bold">My saved palettes</h1>
+
+    <div class="flex flex-col xl:flex-row h-auto xl:w-full w-[34rem] mt-[1rem] gap-y-[2.5rem] xl:gap-x-[10rem]">
+      <div class="flex flex-col gap-y-[2rem] justify-center items-center xl:h-[26rem] h-[18rem] w-full bg-white-background xl:px-[5rem] px-[1.8rem] rounded-lg">
+        <h2 class="h-auto text-[1.4rem] xl:text-[2rem] text-text font-secondary font-semibold">Keyword: nature</h2>
+
+        <div class="flex justify-between w-full h-auto">
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+        </div>
+
+        <div class="flex h-auto w-full justify-between">
+          <buton class="bg-secondary flex justify-center items-center text-white text-[1.8rem] xl:w-[18rem] w-[14rem] xl:h-[5rem] h-[4rem] rounded-xl text-text font-main font-bold">Rename</buton>
+          <buton class="bg-alert flex justify-center items-center text-white-background text-[1.8rem] xl:w-[18rem] w-[14rem] xl:h-[5rem] h-[4rem] rounded-xl text-text font-main font-bold">Delete</buton>
+        </div>
+      </div>
+
+
+      <div class="flex flex-col gap-y-[2rem] justify-center items-center xl:h-[26rem] h-[18rem] w-full bg-white-background xl:px-[5rem] px-[1.8rem] rounded-lg">
+        <h2 class="h-auto text-[1.4rem] xl:text-[2rem] text-text font-secondary font-semibold">Keyword: sun</h2>
+
+        <div class="flex justify-between w-full h-auto">
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+          <div class="xl:h-[8rem] h-[6rem] xl:w-[8rem] w-[6rem] rounded-full bg-text"></div>
+        </div>
+
+        <div class="flex h-auto w-full justify-between">
+          <buton class="bg-secondary flex justify-center items-center text-white text-[1.8rem] xl:w-[18rem] w-[14rem] xl:h-[5rem] h-[4rem] rounded-xl text-text font-main font-bold">Rename</buton>
+          <buton class="bg-alert flex justify-center items-center text-white-background text-[1.8rem] xl:w-[18rem] w-[14rem] xl:h-[5rem] h-[4rem] rounded-xl text-text font-main font-bold">Delete</buton>
+        </div>
+      </div>
+
+    </div>
   </section>
 
+  <script>
+
+    //gestion hamburger
+    const btn = document.getElementById("hamburgerBtn");
+    const menu = document.getElementById("menu");
+
+    btn.addEventListener("click", () => {
+      
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        menu.classList.add("absolute", "top-full", "justify-center","items-center","gap-y-[2rem]","shadow-lg","rounded-xl", "h-[18rem]", "right-0", "w-[52%]", "bg-white-background", "flex-col", "font-regular");
+      } else {
+        menu.classList.add("hidden");
+        menu.classList.remove("absolute", "top-full", "justify-center","items-center","gap-y-[2rem]","shadow-lg","rounded-xl","h-[18rem]", "right-0", "w-[52%]", "bg-white-background", "flex-col","font-regular");
+      }
+    });
+
+  </script>
   
 </body>
 </html>
